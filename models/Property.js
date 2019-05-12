@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 var Schema = mongoose.Schema;
 
-var inmueble = new Schema({
+var property = new Schema({
   antiguedad: Number,
   descripcion: String,
   disposicion: String,
@@ -42,6 +42,6 @@ var inmueble = new Schema({
   ]
 });
 
-const inmuebleModel = mongoose.model('inmueble', inmueble);
+const propertyModel = mongoose.model('property', property);
 
-module.exports = inmuebleModel;
+module.exports = propertyModel;

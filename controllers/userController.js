@@ -1,12 +1,9 @@
-import usuarioModel from './models/Usuario';
+import userModel from '../models/User';
 
 //info de todos los usuarios
 exports.user_list = function (req, res) {
   try {
-    //recupero el id pasado por param
-    const idUser = req.params.id;
-
-    usuarioModel.find({}).then(eachOne => {
+    userModel.find({}).then(eachOne => {
       res.json(eachOne);
     })
   } catch (error) {
@@ -20,7 +17,7 @@ exports.user_detail = function (req, res) {
     //recupero el id pasado por param
     const idUser = req.params.id;
 
-    usuarioModel.findById(idUser, function (err, item) {
+    userModel.findById(idUser, function (err, item) {
       res.status(200).send({ data: item })
       res.status(400).send({ message: 'error' });
     });
@@ -32,7 +29,7 @@ exports.user_detail = function (req, res) {
 //crear un usuario
 exports.user_create_post = function (req, res) {
   try {
-    const Usuario = new usuarioModel(
+    const User = new userModel(
       {
         usuario: 'gaston',
         contraseña: '123456',
@@ -41,10 +38,11 @@ exports.user_create_post = function (req, res) {
         token: 'String'
       }
     );
-    Usuario.save()
-      .then((usuario) => console.log(usuario))
+    User.save()
+      .then((user) => console.log(user))
       .catch(error => console.log(error))
-    res.json(Usuario);
+
+    res.json(User);
 
   } catch (error) {
     console.log(error);
@@ -57,7 +55,7 @@ exports.user_delete_post = function (req, res) {
     //recupero el id pasado por param
     const idUser = req.params.id;
 
-    usuarioModel.findOneAndRemove({ _id: idUser }, function (err) {
+    userModel.findOneAndRemove({ _id: idUser }, function (err) {
       res.json('ok');
     });
 

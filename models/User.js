@@ -16,6 +16,6 @@ var user = new Schema({
   token: String,
 })
 
-const usuarioModel = mongoose.model('usuario', user);
+const userModel = mongoose.model('User', user);
 
-module.exports = usuarioModel;
+module.exports = userModel;
