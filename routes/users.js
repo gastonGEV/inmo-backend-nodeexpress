@@ -4,18 +4,19 @@ import userController from '../controllers/userController';
 const router = express.Router();
 
 // GET request for one user.
-router.get('/user/:id', userController.user_detail);
+router.get('/:id', userController.user_detail);
 
 // GET request for all users.
-router.get('/users', userController.user_list);
+router.get('/all', userController.user_list);
 
 // POST request create user
-router.post('/user/create', userController.user_create_post); //controlller.method
+router.post('/create', userController.user_create_post); //controller.method
+// router.post('/create', (req, res) => res.json({ msg: "user create works" }));
 
 // POST request to delete user.
-router.post('/user/:id/delete', userController.user_delete_post);
+router.post('/delete/:id', userController.user_delete_post);
 
 // POST request to update user.
-router.get('/user/:id/update', userController.user_update_post);
+router.get('/update/:id', userController.user_update_post);
 
 module.exports = router;

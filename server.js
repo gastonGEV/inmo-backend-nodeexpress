@@ -17,8 +17,8 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.listen(3010, () => { console.log('Escuchando el puerto 3010') });  //levantamos el sv, abrimos el puerto 3010 y escuchamos cualquier http
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/propertys', propertyRouter);
+app.use('/user', usersRouter);
+app.use('/property', propertyRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
